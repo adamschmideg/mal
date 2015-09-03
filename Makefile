@@ -11,7 +11,7 @@ PYTHON = python
 #
 
 IMPLS = awk bash c clojure coffee cpp crystal cs erlang es6 factor forth fsharp go groovy \
-	haskell java julia js lua make mal ocaml matlab miniMAL nim \
+	haskell io java julia js lua make mal ocaml matlab miniMAL nim \
 	perl php ps python r racket rpython ruby rust scala swift vb guile
 
 step0 = step0_repl
@@ -72,6 +72,7 @@ go_STEP_TO_PROG =      go/$($(1))
 groovy_STEP_TO_PROG =  groovy/$($(1)).groovy
 java_STEP_TO_PROG =    java/src/main/java/mal/$($(1)).java
 haskell_STEP_TO_PROG = haskell/$($(1))
+io_STEP_TO_PROG =      io/$($(1)).io
 julia_STEP_TO_PROG =   julia/$($(1)).jl
 js_STEP_TO_PROG =      js/$($(1)).js
 lua_STEP_TO_PROG =     lua/$($(1)).lua
@@ -117,6 +118,7 @@ fsharp_RUNSTEP =  mono ../$(2) --raw $(3)
 go_RUNSTEP =      ../$(2) $(3)
 groovy_RUNSTEP =  groovy ../$(2) $(3)
 haskell_RUNSTEP = ../$(2) $(3)
+io_RUNSTEP =      ../$(2) $(3)
 java_RUNSTEP =    mvn -quiet exec:java -Dexec.mainClass="mal.$($(1))" $(if $(3), -Dexec.args="$(3)",)
 julia_RUNSTEP =   ../$(2) $(3)
 js_RUNSTEP =      node ../$(2) $(3)
